@@ -3,4 +3,7 @@ node_modules
 npm-debug.log
 .hz/*
 !.hz/config.toml
-bundle.js
+client/bundle.js
+client/index.html
+*.hot-update.js
+*.hot-update.json

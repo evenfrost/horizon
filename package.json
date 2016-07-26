@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --config webpack.config.babel.js",
-    "horizon": "hz serve --dev --serve-static ./static"
+    "start": "npm-run-all webpack horizon",
+    "webpack": "webpack --watch --progress --colors",
+    "horizon": "hz serve --dev --serve-static ./client",
+    "wds": "webpack-dev-server --host 0.0.0.0 --config webpack.config.babel.js"
   },
   "author": "evenfrost",
   "license": "MIT",
@@ -50,6 +52,7 @@
     "html-webpack-plugin": "^2.22.0",
     "jade-loader": "^0.8.0",
     "json-loader": "^0.5.4",
+    "npm-run-all": "^2.3.0",
     "pug-loader": "^2.1.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",

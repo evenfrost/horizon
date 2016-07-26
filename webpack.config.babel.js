@@ -3,14 +3,10 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const [host, port] = ['0.0.0.0', 4000];
+const [host, port] = ['0.0.0.0', 5001];
 
 export default {
-  entry: [
-    `webpack-dev-server/client?http://${host}:${port}`,
-    'webpack/hot/dev-server',
-    resolve(__dirname, 'client/index'),
-  ],
+  entry: resolve(__dirname, 'client/index'),
   output: {
     path: resolve(__dirname, 'client'),
     filename: 'bundle.js',
@@ -54,8 +50,6 @@ export default {
     root: resolve(__dirname, 'client'),
   },
   devServer: {
-    hot: true,
-    port,
     historyApiFallback: {
       index: `http://${host}:${port}/`,
     },
