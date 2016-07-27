@@ -1,5 +1,4 @@
 import { resolve } from 'path';
-import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
@@ -17,7 +16,6 @@ export default {
     new HtmlWebpackPlugin({
       template: './client/index.pug',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     loaders: [{
