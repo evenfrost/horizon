@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
+import List from 'components/list';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>react</div>
-    );
-  }
-}
+const App = ({ state }) => (
+  <div>
+    <div>test</div>
+    <List items={state.items} />
+  </div>
+);
+
+App.propTypes = {
+  items: PropTypes.array,
+};
+
+export default App;
