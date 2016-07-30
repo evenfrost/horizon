@@ -1,15 +1,29 @@
-import React, { PropTypes } from 'react';
-import List from 'components/list';
+import React, { Component, PropTypes } from 'react';
+import TodoList from 'components/todo-list';
+import TodoForm from 'components/todo-form';
+import { todos as todosCollection } from 'horizon';
 
-const App = ({ state }) => (
-  <div>
-    <div>test</div>
-    <List items={state.items} />
-  </div>
-);
+export default class App extends Component {
+  state = {
+    todos: [],
+  };
 
-App.propTypes = {
-  items: PropTypes.array,
-};
+  componentDidMount() {
+    todosCollection.watch().subscribe(todos => {
+      this.setState({ todos });
+    });
+  }
 
-export default App;
+  render() {
+    return (
+      <div>
+        <TodoList todos={this.state.todos} />
+        <TodoForm />
+      </div>
+    );
+  }
+}
+
+// App.propTypes = {
+//   state: PropTypes.object,
+// };

@@ -1,24 +1,11 @@
-import Horizon from '@horizon/client';
 import React from 'react';
 import { render } from 'react-dom';
 import App from 'components/app';
-
-const horizon = new Horizon({ host: 'localhost:5001' });
-const items = [{
-  name: 1,
-}, {
-  name: 2,
-}, {
-  name: 3,
-}];
-
-const state = {
-  items,
-};
+import horizon from 'horizon';
 
 horizon.onReady(() => {
   render(
-    <App state={state} />,
+    <App />,
     document.querySelector('main'),
   );
 });
